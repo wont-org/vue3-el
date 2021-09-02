@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "target": "esnext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+
+        // check
+        "strict": false,
+        "noImplicitAny": false,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "types": ["vite/client", "@types/node"],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./*"]
+            // "@demo/*": ["demo/*"],
+            // "@components/*": ["components/*"],
+        }
+    },
+    "include": ["components"],
+    "exclude": [
+        "components/**/*.stories.tsx",
+        "components/**/*.stories.mdx",
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[tj]s?(x)"
+    ]
+}

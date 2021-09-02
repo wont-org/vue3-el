@@ -1,0 +1,62 @@
+@import '../style/var.less';
+
+@component: btn;
+@pkg-name: ant;
+
+@types: {
+    // primary: @color-primary;
+    // danger: @color-danger;
+    success: @color-success;
+    warning: @color-warning;
+    info: @color-info;
+};
+@colors-deep: {
+    // primary: @color-primary-deep1;
+    // danger: @color-danger-deep1;
+    success: @color-success-deep1;
+    warning: @color-warning-deep1;
+    info: @color-info-deep1;
+};
+@colors-light: {
+    // primary: @color-primary-light1;
+    // danger: @color-danger-light1;
+    success: @color-success-light1;
+    warning: @color-warning-light1;
+    info: @color-info-light1;
+};
+
+.@{pkg-name}-btn-wrap {
+    display: inline-block;
+    border-radius: @border-radius-base;
+    each(@types, .(@value, @key){
+            .@{pkg-name}-@{component}-@{key} {
+                background-color: @value;
+                border-color: @value;
+                color: @color-white;
+            }
+
+        })
+
+        each(@colors-light, .(@value, @key) {
+            .@{pkg-name}-@{component}-@{key} {
+                &:hover {
+                    background-color: @value;
+                    border-color: @value;
+                    color: @color-white;
+                }
+                &:focus {
+                    background-color: @value;
+                    border-color: @value;
+                    color: @color-white;
+                }
+            }
+        })
+
+        each(@colors-deep, .(@value, @key) {
+            .@{pkg-name}-@{component}-@{key}:active {
+                border-color: @value;
+                color: @color-white;
+            }
+
+        });
+}
