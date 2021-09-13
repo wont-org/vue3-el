@@ -8,7 +8,7 @@ import classnames from 'classnames'
 
 import './index.less'
 
-const prefix = 'wanwu-<%= h.changeCase.paramCase(name) %>'
+const prefix = 'wont-<%= h.changeCase.paramCase(name) %>'
 
 export interface <%= name %>Props {
     className?: string

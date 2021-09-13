@@ -1,6 +1,6 @@
 {
-    "name": "@wanwu/vue3-el",
-    "version": "0.1.1-alpha.3",
+    "name": "@wont/vue3-el",
+    "version": "1.0.0",
     "main": "lib/index.js",
     "module": "es/index.js",
     "types": "es/index.d.ts",
@@ -30,11 +30,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@gitlab.wanwudezhi.work:fe-support/vue3_el.git"
+        "url": "git@github.com:wont-org/vue3-el.git"
     },
     "keywords": [
         "vue3-el",
-        "@wanwu/vue3-el"
+        "vue3",
+        "components",
+        "antv",
+        "@wont/vue3-el"
     ],
     "author": {
         "name": "bantang",
@@ -42,11 +45,12 @@
     },
     "license": "MIT",
     "bugs": {
-        "url": "http://gitlab.wanwudezhi.work/fe-support/vue3_el/-/issues"
+        "url": "https://github.com/wont-org/vue3-el/issues"
     },
-    "homepage": "http://gitlab.wanwudezhi.work/fe-support/vue3_el",
+    "homepage": "https://github.com/wont-org/vue3-el",
     "publishConfig": {
-        "registry": "http://registry-npm.wanwudezhi.work/"
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
     },
     "hooks": {
         "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
