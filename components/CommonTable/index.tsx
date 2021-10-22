@@ -1,14 +1,8 @@
-/*
- * @Author: ganlan
- * @Date: 2021-03-18 11:21:53
- * @Description:
- */
-
 import {
-    defineComponent, computed, PropType 
+    defineComponent, computed, PropType
 } from 'vue'
 import {
-    Table, Image 
+    Table, Image
 } from 'ant-design-vue'
 import { TableProps } from 'ant-design-vue/es/table/interface'
 import { CopyOutlined } from '@ant-design/icons-vue'
@@ -16,14 +10,14 @@ import moment from 'moment'
 import { createClasses } from 'vue3-emotion'
 import { get } from 'lodash'
 import {
-    slimCdnImg, copyContent 
+    slimCdnImg, copyContent
 } from '../_common/utils'
 import ViewVideo from '../ViewVideo'
 import {
-    IMG, REG_EXP 
+    IMG, REG_EXP
 } from '../_common/constant'
 import {
-    tableHeader, tableBody 
+    tableHeader, tableBody
 } from './demoConfig'
 import Button from '../Button'
 import { TableHeader } from './interface'
