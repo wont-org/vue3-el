@@ -3,5 +3,11 @@
     "compilerOptions": {
         "module": "esnext"
     },
-    "include": [".eslintrc.js", "./**/*.js", "./**/*.jsx", "./**/*.ts", "./**/*.d.ts", "./**/*.tsx"]
+    "include": [".eslintrc.js", "./**/*.js", "./**/*.jsx", "./**/*.ts", "./**/*.d.ts", "./**/*.tsx"],
+    "exclude": [
+        // "components/**/*.stories.tsx",
+        "components/**/*.stories.mdx",
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[tj]s?(x)"
+    ]
 }

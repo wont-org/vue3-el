@@ -1,107 +1,118 @@
 {
-    "name": "@wont/vue3-el",
-    "version": "1.0.0",
-    "main": "lib/index.js",
-    "module": "es/index.js",
-    "types": "es/index.d.ts",
-    "files": [
-        "lib",
-        "es"
+  "name": "@wont/vue3-el",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "sideEffects": [
+    "es/**/*.(less|css|scss|pcss)",
+    "lib/**/*.(less|css|scss|pcss)",
+    "*.(less|css|scss|pcss)"
+  ],
+  "scripts": {
+    "create": "hygen component with-prompt",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "prettier": "prettier --write .",
+    "eslint": "eslint . --ext .jsx,.js,.tsx,.ts",
+    "eslint:fix": "eslint . --ext .jsx,.js,.tsx,.ts --cache --fix",
+    "commit": "git-cz",
+    "link": "npm run prepublishOnly && npm link",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "prepublishOnly": "npm run changelog && wont-tools compile vue3 -d antd",
+    "publish": "ts-node scripts/pub.ts",
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wont-org/vue3-el.git"
+  },
+  "keywords": [
+    "vue3-el",
+    "vue3",
+    "components",
+    "antv",
+    "@wont/vue3-el"
+  ],
+  "author": {
+    "name": "bantang",
+    "email": "bantang@zhuangdianwenhua.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wont-org/vue3-el/issues"
+  },
+  "homepage": "https://github.com/wont-org/vue3-el",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "hooks": {
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+  },
+  "lint-staged": {
+    "*.{jsx,js,tsx,ts,md,mdx,css,less,html}": [
+      "prettier --write"
     ],
-    "sideEffects": [
-        "es/**/*.(less|css|scss|pcss)",
-        "lib/**/*.(less|css|scss|pcss)",
-        "*.(less|css|scss|pcss)"
-    ],
-    "scripts": {
-        "create": "hygen component with-prompt",
-        "dev": "vite",
-        "build": "vue-tsc --noEmit && vite build",
-        "serve": "vite preview",
-        "prettier": "prettier --write .",
-        "eslint": "eslint . --ext .jsx,.js,.tsx,.ts",
-        "eslint:fix": "eslint . --ext .jsx,.js,.tsx,.ts --cache --fix",
-        "commit": "git-cz",
-        "link": "npm run prepublishOnly && npm link",
-        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-        "prepublishOnly": "npm run changelog && wont-tools compile vue3 -d antd",
-        "publish": "ts-node scripts/pub.ts",
-        "prepare": "husky install"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:wont-org/vue3-el.git"
-    },
-    "keywords": [
-        "vue3-el",
-        "vue3",
-        "components",
-        "antv",
-        "@wont/vue3-el"
-    ],
-    "author": {
-        "name": "bantang",
-        "email": "bantang@zhuangdianwenhua.com"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/wont-org/vue3-el/issues"
-    },
-    "homepage": "https://github.com/wont-org/vue3-el",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/"
-    },
-    "hooks": {
-        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    },
-    "lint-staged": {
-        "*.{jsx,js,tsx,ts,md,mdx,css,less,html}": [
-            "prettier --write"
-        ],
-        "*.{jsx,js,tsx,ts}": [
-            "eslint --cache --fix"
-        ]
-    },
-    "dependencies": {
-        "ant-design-vue": "^2.2.6",
-        "classnames": "^2.3.1",
-        "moment": "^2.29.1",
-        "vue": "^3.2.2",
-        "vue3-emotion": "0.0.7"
-    },
-    "devDependencies": {
-        "@babel/plugin-transform-runtime": "^7.14.5",
-        "@babel/preset-env": "^7.14.7",
-        "@babel/preset-typescript": "^7.14.5",
-        "@commitlint/cli": "^12.1.4",
-        "@commitlint/config-conventional": "^12.1.4",
-        "@types/node": "^15.0.1",
-        "@vitejs/plugin-vue-jsx": "^1.1.3",
-        "@wont/tools": "^0.0.1-beta.1",
-        "babel-plugin-import": "^1.13.3",
-        "commitizen": "^4.2.4",
-        "conventional-changelog-cli": "^2.1.1",
-        "cz-conventional-changelog": "^3.2.0",
-        "eslint-config-vue3-jsx": "^0.0.2-rc.2",
-        "glob": "^7.1.6",
-        "husky": "^6.0.0",
-        "hygen": "^6.1.0",
-        "install": "^0.13.0",
-        "less": "^3.13.1",
-        "less-loader": "^6.2.0",
-        "lint-staged": "^10.2.11",
-        "npm": "^7.11.1",
-        "ts-node": "^9.0.0",
-        "typescript": "^4.1.3",
-        "vite": "~2.2.4",
-        "vite-plugin-style-import": "^1.0.1",
-        "vue-router": "^4.0.6",
-        "vue-tsc": "^0.0.24"
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+    "*.{jsx,js,tsx,ts}": [
+      "eslint --cache --fix"
+    ]
+  },
+  "dependencies": {
+    "ant-design-vue": "^2.2.6",
+    "classnames": "^2.3.1",
+    "moment": "^2.29.1",
+    "vue": "^3.2.2",
+    "vue3-emotion": "0.0.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/vue3": "^6.3.12",
+    "@types/node": "^15.0.1",
+    "@vitejs/plugin-vue": "^1.9.4",
+    "@vitejs/plugin-vue-jsx": "^1.1.3",
+    "@wont/tools": "^0.0.1-beta.1",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-import": "^1.13.3",
+    "commitizen": "^4.2.4",
+    "conventional-changelog-cli": "^2.1.1",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint-config-vue3-jsx": "^0.0.2-rc.2",
+    "glob": "^7.1.6",
+    "husky": "^6.0.0",
+    "hygen": "^6.1.0",
+    "install": "^0.13.0",
+    "less": "^3.13.1",
+    "less-loader": "^6.2.0",
+    "lint-staged": "^10.2.11",
+    "npm": "^7.11.1",
+    "storybook-builder-vite": "^0.1.5",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.3",
+    "vite": "^2.6.13",
+    "vite-plugin-style-import": "^1.0.1",
+    "vue-loader": "^16.8.2",
+    "vue-router": "^4.0.6",
+    "vue-tsc": "^0.0.24"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
+  }
 }
