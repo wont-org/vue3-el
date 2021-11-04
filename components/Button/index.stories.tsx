@@ -6,6 +6,7 @@ import Button, {
     btnType, antdBtnType 
 } from '.'
 
+const options = [...antdBtnType, ...btnType]
 export default {
     title: 'Form/Button',
     component: Button,
@@ -19,12 +20,13 @@ export default {
                     summary: 'default',
                 },
                 type: {
-                    summary: [...antdBtnType, ...btnType],
+                    summary: options,
                 },
             },
+            options,
             control: {
                 type: 'select',
-                options: [...antdBtnType, ...btnType],
+                labels: options,
             },
         },
     },
