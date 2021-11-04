@@ -11,27 +11,24 @@ import './index.less'
 const prefix = 'wont-<%= h.changeCase.paramCase(name) %>'
 
 export interface <%= name %>Props {
-    className?: string
-    type?: boolean
+    text: string
 }
 
-export default defineComponent({
+export default defineComponent<<%= name %>Props>({
     name: '<%= name %>',
     props: {
-        type: {
-            type: Boolean as PropType<<%= name %>Props>,
-            default: false,
+        text: {
+            type: String,
+            required: true,
         },
     },
     setup(props) {
         const cls = classnames(`${prefix}`, {
-            [`${prefix}-${props.type}`]: props.type,
         })
-
         return () => {
             return (
                 <section class={cls}>
-                    <%= name %>
+                    {props.text}
                 </section>
             )
         }
