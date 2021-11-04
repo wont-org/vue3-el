@@ -3,7 +3,7 @@
     "compilerOptions": {
         "module": "esnext"
     },
-    "include": [".eslintrc.js", "./**/*.js", "./**/*.jsx", "./**/*.ts", "./**/*.d.ts", "./**/*.tsx"],
+    "include": [".storybook", ".eslintrc.js", "./**/*.js", "./**/*.jsx", "./**/*.ts", "./**/*.d.ts", "./**/*.tsx"],
     "exclude": [
         // "components/**/*.stories.tsx",
         "components/**/*.stories.mdx",
