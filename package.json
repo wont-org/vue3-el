@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "create": "hygen component with-prompt",
-    "dev": "vite",
+    "dev": "vite --port 4096 --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "prettier": "prettier --write .",
