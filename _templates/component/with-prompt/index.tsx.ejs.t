@@ -2,7 +2,7 @@
   to: components/<%= name %>/index.tsx
 ---
 import {
-    defineComponent, PropType
+    defineComponent, DefineComponent
 } from 'vue'
 import classnames from 'classnames'
 
@@ -14,7 +14,7 @@ export interface <%= name %>Props {
     text: string
 }
 
-export default defineComponent<<%= name %>Props>({
+export default defineComponent({
     name: '<%= name %>',
     props: {
         text: {
@@ -33,4 +33,4 @@ export default defineComponent<<%= name %>Props>({
             )
         }
     },
-})
+}) as DefineComponent<<%= name %>Props>
