@@ -1,9 +1,8 @@
 ---
   to: components/<%= name %>/index.tsx
 ---
-import {
-    defineComponent, DefineComponent
-} from 'vue'
+import {defineComponent} from 'vue'
+import type {PropType} from 'vue'
 import classnames from 'classnames'
 
 import './index.less'
@@ -18,7 +17,7 @@ export default defineComponent({
     name: '<%= name %>',
     props: {
         text: {
-            type: String,
+            type: String  as PropType<<%= name %>Props['text']>,
             required: true,
         },
     },
@@ -33,4 +32,4 @@ export default defineComponent({
             )
         }
     },
-}) as DefineComponent<<%= name %>Props>
+})
