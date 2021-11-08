@@ -1,4 +1,6 @@
-export const parameters = {
+import { Parameters } from '@storybook/addons'
+
+export const parameters: Parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
         matchers: {

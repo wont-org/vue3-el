@@ -2,6 +2,8 @@ const vueJsx = require('@vitejs/plugin-vue-jsx')
 const { join } = require('path')
 const styleImport = require('vite-plugin-style-import').default
 
+// if you conside type safe
+// https://miyauchi.dev/posts/storybook-vite/
 module.exports = {
     stories: [
         '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
