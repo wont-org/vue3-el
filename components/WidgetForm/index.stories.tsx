@@ -1,8 +1,13 @@
 import {
     Story, Meta 
 } from '@storybook/vue3'
+import {
+    defineComponent, reactive 
+} from 'vue'
 import WidgetForm, { WidgetFormProps } from '.'
-import { mockData } from './demoConfig'
+import {
+    mockData, formDateSource 
+} from './demos'
 
 export default {
     title: 'Form/WidgetForm',
@@ -15,9 +20,9 @@ export default {
             },
             source: {
                 type: 'auto',
-                code: `
-                    <WidgetForm dataSource={dataSource} />
-                `,
+                // code: `
+                //     <WidgetForm dataSource={dataSource} />
+                // `,
             },
         },
     },
@@ -100,17 +105,49 @@ export default {
     },
 } as Meta
 
-const Template: Story<WidgetFormProps> = (args) => <WidgetForm {...args} />
+const Template: Story<WidgetFormProps> = (args) =>
+    defineComponent({
+        name: 'WidgetFormTemplate',
+        setup() {
+            const stateRef = reactive({
+                formModel: {},
+            })
+            return () => {
+                return (
+                    <WidgetForm
+                        {...args}
+                        onChange={(data) => {
+                            console.log(
+                                'stateRef.formModel, data :>> ',
+                                stateRef.formModel,
+                                data
+                            )
+                            stateRef.formModel = data
+                        }}
+                    />
+                )
+            }
+        },
+    })
 
 // 组件总览
 export const Overview = Template.bind({})
 Overview.args = {
     dataSource: mockData,
+    onInitModel: (state) => {
+        console.log('onInitModel :>> ', state)
+    },
+}
+
+// 表单形式
+export const FormModel = Template.bind({})
+FormModel.args = {
+    dataSource: formDateSource,
     config: {
-        // layout: 'horizontal',
-        // labelCol: { span: 8 },
-        // wrapperCol: { span: 16 },
-        // labelAlign: 'right',
+        layout: 'horizontal',
+        labelCol: { span: 8 },
+        wrapperCol: { span: 16 },
+        labelAlign: 'right',
     },
     watchInitModel: {
         updateState: false,

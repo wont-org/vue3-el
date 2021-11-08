@@ -92,6 +92,7 @@ const WidgetForm = defineComponent({
             modelRef: {},
             rulesRef: {},
         })
+        console.log('props.onChange :>> ', props.onChange)
         // console.log('props :>> ', props);
         // set style
         const classRef = createClasses(() => ({
@@ -204,18 +205,6 @@ const WidgetForm = defineComponent({
                 customRender: CustomRender,
             } = item
             const { type, fieldNames, deps = {}, options } = selfProps
-
-            // const setEmits = (eName: string) => {
-            //     if (!eName) {
-            //         return
-            //     }
-            //     const evtIdx = WidgetForm.emits.findIndex((e) => e === eName)
-            //     if (evtIdx === -1) {
-            //         WidgetForm.emits.push(eName)
-            //     }
-            //     // console.log('WidgetForm :>> ', WidgetForm.emits)
-            // }
-            // setEmits(eventName)
 
             const getDeps = () => {
                 const rawDepVal: string[] = []

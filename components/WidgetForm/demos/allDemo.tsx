@@ -1,4 +1,4 @@
-import { DataSourceItem } from './interface'
+import { DataSourceItem } from '../interface'
 
 export const selectList = [
     {

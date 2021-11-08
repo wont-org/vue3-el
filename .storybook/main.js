@@ -17,20 +17,7 @@ module.exports = {
     //         tsconfig: join(__dirname, '../tsconfig.es.json'),
     //         eslint: false,
     //     },
-    //   }
-    //   addons: [
-    //     {
-    //       name: '@storybook/addon-docs',
-    //       options: {
-    //         vueDocgenOptions: {
-    //           alias: {
-    //             '@': join(__dirname, './'),
-    //           },
-    //           jsx: true,
-    //         },
-    //       },
-    //     },
-    //   ],
+    //   },
     async viteFinal(config = {}) {
         let { plugins = [], resolve = {}, css = {}, optimizeDeps = {} } = config
 
@@ -62,6 +49,7 @@ module.exports = {
             ...resolve.alias,
             '@': join(__dirname, './'),
         }
+        console.log('plugins :>> ', plugins)
         return {
             ...config,
             plugins,

@@ -9,14 +9,15 @@ function isUpperCase(ch) {
 
 export const getRoutes = () => {
     const routes: RouteRecordRaw[] = []
-    const components = import.meta.glob(
-        '../../components/**[a-zA-Z]+/index.tsx',
-        {
-            caseSensitiveMatch: true,
-        }
-    )
+
+    // '../../components/**[a-zA-Z]+/index.tsx',
+    const components = import.meta.glob('../../es/**[a-zA-Z]+/index.js', {
+        caseSensitiveMatch: true,
+    })
+    console.log('components :>> ', components)
     Object.keys(components).forEach((relativeUrl) => {
-        const matched = relativeUrl.match(/components\/(.*)\/index\.tsx/)
+        // const matched = relativeUrl.match(/components\/(.*)\/index\.tsx/)
+        const matched = relativeUrl.match(/es\/(.*)\/index\.js/)
         const fileName = get(matched, '[1]', '')
         if (isUpperCase(fileName.substr(0, 1))) {
             routes.push({
