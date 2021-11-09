@@ -18,12 +18,12 @@ export default {
                 component:
                     '多功能form，可用来做表单，表格搜索项。内置组件脱胎于antdv',
             },
-            source: {
-                type: 'auto',
-                // code: `
-                //     <WidgetForm dataSource={dataSource} />
-                // `,
-            },
+            // source: {
+            // type: 'auto',
+            // code: `
+            //     <WidgetForm dataSource={dataSource} />
+            // `,
+            // },
         },
     },
     argTypes: {
@@ -155,8 +155,5 @@ FormModel.args = {
     },
     onInitModel: (state) => {
         console.log('onInitModel :>> ', state)
-    },
-    onChange: (state) => {
-        console.log('onChange :>> ', state)
     },
 }

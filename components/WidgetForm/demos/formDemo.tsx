@@ -1,4 +1,5 @@
 import { DataSourceItem } from '../interface'
+import { selectList } from './allDemo'
 
 export const fetch = () => {
     const result = [
@@ -22,16 +23,7 @@ export const formDateSource: DataSourceItem[] = [
         value: '1',
         name: 'select1',
         selfProps: {
-            options: [
-                {
-                    label: '选我没数据',
-                    value: '1',
-                },
-                {
-                    label: '选我有数据',
-                    value: '2',
-                },
-            ],
+            options: selectList,
             // fieldNames: {
             //     label: 'label',
             //     value: 'value',

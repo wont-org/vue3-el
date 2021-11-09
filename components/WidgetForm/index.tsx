@@ -92,7 +92,7 @@ const WidgetForm = defineComponent({
             modelRef: {},
             rulesRef: {},
         })
-        console.log('props.onChange :>> ', props.onChange)
+        // console.log('props.onChange :>> ', props.onChange)
         // console.log('props :>> ', props);
         // set style
         const classRef = createClasses(() => ({
