@@ -15,20 +15,21 @@
   ],
   "scripts": {
     "create": "hygen component with-prompt",
-    "dev": "vite --port 4096 --host",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev:demo": "vite --port 4096 --host",
+    "build:demo": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "prettier": "prettier --write .",
     "eslint": "eslint . --ext .jsx,.js,.tsx,.ts",
     "eslint:fix": "eslint . --ext .jsx,.js,.tsx,.ts --cache --fix",
     "commit": "git-cz",
     "link": "npm run prepublishOnly && npm link",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prepublishOnly": "npm run changelog && wont-tools compile vue3 -d antd",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "build": "wont-tools compile vue3 -d antd",
+    "prepublishOnly": "npm run changelog && npm run build",
     "publish": "ts-node scripts/pub.ts",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "dev": "start-storybook -p 6006",
+    "build:docs": "build-storybook"
   },
   "repository": {
     "type": "git",
