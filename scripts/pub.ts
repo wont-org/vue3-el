@@ -10,7 +10,7 @@ runner.on('close', (code) => {
         // execSync('git add CHANGELOG.md')
         // execSync(`git commit -m 'docs: changelog => ${version}'`)
         execSync(`git tag v${version}`)
-        execSync(`git push origin master v${version}:v${version}`)
+        execSync(`git push origin main v${version}:v${version}`)
         execSync('git push')
     } else {
         // eslint-disable-next-line no-console

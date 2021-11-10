@@ -1,4 +1,4 @@
-import { DataSourceItem } from './interface'
+import { DataSourceItem } from '../interface'
 
 export const selectList = [
     {
@@ -153,7 +153,8 @@ export const mockData: DataSourceItem[] = [
             {
                 type: 'number',
                 required: true,
-                message: '请选择货号',
+                message: '请填写数字',
+                trigger: 'change',
             },
             {
                 validator: async (

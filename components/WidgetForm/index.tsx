@@ -1,14 +1,9 @@
 import moment from 'moment'
 import { createClasses } from 'vue3-emotion'
 import {
-    defineComponent,
-    reactive,
-    PropType,
-    ref,
-    onMounted,
-    watch,
-    toRaw,
+    defineComponent, reactive, ref, onMounted, watch, toRaw 
 } from 'vue'
+import type { PropType } from 'vue'
 import {
     Form,
     Input,
@@ -21,16 +16,15 @@ import {
     Checkbox,
     Switch,
 } from 'ant-design-vue'
-import {
+import type {
     RangePickerPresetRange,
     RangePickerValue,
 } from 'ant-design-vue/es/date-picker/interface'
-import { FormProps } from 'ant-design-vue/es/form/Form'
+import type { FormProps } from 'ant-design-vue/es/form/Form'
 import {
     get, isEqual 
 } from 'lodash'
-import { mockData } from './demoConfig'
-import {
+import type {
     TimeConfig,
     DataSourceItem,
     OptionItem,
@@ -48,16 +42,24 @@ interface StateRef {
     rulesRef: Record<string, any>
 }
 
+export interface WidgetFormProps {
+    dataSource: DataSourceItem[]
+    config?: FormProps
+    watchInitModel?: WatchInitModel
+    onInitModel?: (state: Record<string, unknown>) => void
+    onChange?: (state: Record<string, unknown>) => void
+}
+
 const WidgetForm = defineComponent({
     name: 'WidgetForm',
     props: {
         dataSource: {
-            type: Array as PropType<DataSourceItem[]>,
-            default: mockData,
+            type: Array as PropType<WidgetFormProps['dataSource']>,
+            required: true,
         },
         // 参照antd，model和rules自动生成，不需要传
         config: {
-            type: Object as PropType<FormProps>,
+            type: Object as PropType<WidgetFormProps['config']>,
             default: () => ({}),
         },
         /**
@@ -69,18 +71,18 @@ const WidgetForm = defineComponent({
          * @property emitInitModel 触发onInitModel
          */
         watchInitModel: {
-            type: Object as PropType<WatchInitModel>,
+            type: Object as PropType<WidgetFormProps['watchInitModel']>,
             default: () => ({
                 updateState: false,
                 emitInitModel: false,
             }),
         },
         onInitModel: {
-            type: Function,
+            type: Function as PropType<WidgetFormProps['onInitModel']>,
             default: () => {},
         },
         onChange: {
-            type: Function,
+            type: Function as PropType<WidgetFormProps['onChange']>,
             default: () => {},
         },
     },
@@ -90,6 +92,7 @@ const WidgetForm = defineComponent({
             modelRef: {},
             rulesRef: {},
         })
+        // console.log('props.onChange :>> ', props.onChange)
         // console.log('props :>> ', props);
         // set style
         const classRef = createClasses(() => ({
@@ -202,18 +205,6 @@ const WidgetForm = defineComponent({
                 customRender: CustomRender,
             } = item
             const { type, fieldNames, deps = {}, options } = selfProps
-
-            // const setEmits = (eName: string) => {
-            //     if (!eName) {
-            //         return
-            //     }
-            //     const evtIdx = WidgetForm.emits.findIndex((e) => e === eName)
-            //     if (evtIdx === -1) {
-            //         WidgetForm.emits.push(eName)
-            //     }
-            //     // console.log('WidgetForm :>> ', WidgetForm.emits)
-            // }
-            // setEmits(eventName)
 
             const getDeps = () => {
                 const rawDepVal: string[] = []
@@ -342,16 +333,15 @@ const WidgetForm = defineComponent({
                                     <Checkbox.Group
                                         onChange={(val = []) => {
                                             if (eventName) {
-                                                const rawData =
-                                                        optionList.filter(
-                                                            (
-                                                                checked: OptionItem
-                                                            ) => {
-                                                                return val.includes(
-                                                                    checked.value
-                                                                )
-                                                            }
+                                                const rawData = optionList.filter(
+                                                    (
+                                                        checked: OptionItem
+                                                    ) => {
+                                                        return val.includes(
+                                                            checked.value
                                                         )
+                                                    }
+                                                )
                                                 emit(
                                                     eventName,
                                                     rawData,
@@ -393,17 +383,16 @@ const WidgetForm = defineComponent({
                                                     'target.value',
                                                     ''
                                                 )
-                                                const rawData =
-                                                        optionList.filter(
-                                                            (
-                                                                checked: OptionItem
-                                                            ) => {
-                                                                return (
-                                                                    val ===
-                                                                    checked.value
-                                                                )
-                                                            }
+                                                const rawData = optionList.filter(
+                                                    (
+                                                        checked: OptionItem
+                                                    ) => {
+                                                        return (
+                                                            val ===
+                                                                checked.value
                                                         )
+                                                    }
+                                                )
                                                 emit(
                                                     eventName,
                                                     val,

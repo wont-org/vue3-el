@@ -1,9 +1,8 @@
 ---
   to: components/<%= name %>/index.tsx
 ---
-import {
-    defineComponent, PropType
-} from 'vue'
+import {defineComponent} from 'vue'
+import type {PropType} from 'vue'
 import classnames from 'classnames'
 
 import './index.less'
@@ -11,27 +10,24 @@ import './index.less'
 const prefix = 'wont-<%= h.changeCase.paramCase(name) %>'
 
 export interface <%= name %>Props {
-    className?: string
-    type?: boolean
+    text: string
 }
 
 export default defineComponent({
     name: '<%= name %>',
     props: {
-        type: {
-            type: Boolean as PropType<<%= name %>Props>,
-            default: false,
+        text: {
+            type: String  as PropType<<%= name %>Props['text']>,
+            required: true,
         },
     },
     setup(props) {
         const cls = classnames(`${prefix}`, {
-            [`${prefix}-${props.type}`]: props.type,
         })
-
         return () => {
             return (
                 <section class={cls}>
-                    <%= name %>
+                    {props.text}
                 </section>
             )
         }

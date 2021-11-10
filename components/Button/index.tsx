@@ -5,7 +5,16 @@ import { Button } from 'ant-design-vue'
 import buttonProps from 'ant-design-vue/es/button/buttonTypes'
 import './index.less'
 
-export type BtnType = 'success' | 'info' | 'warning'
+export const antdBtnType = [
+    'default',
+    'link',
+    'text',
+    'dashed',
+    'ghost',
+    'primary',
+] as const
+export const btnType = ['success', 'info', 'warning'] as const
+export type BtnType = typeof btnType[number] | typeof antdBtnType[number]
 // export interface ExtraButtonProps extends Omit<ButtonProps, 'type'> {
 //     type: BtnType | ButtonProps['type']
 // }
@@ -21,7 +30,7 @@ export default defineComponent({
         },
     },
     setup(props, { slots }) {
-        const type = props.type || props.btnType
+        const type = props.btnType || props.type
         return () => {
             const btnTypeCls = type ? `ant-btn-${type}` : ''
             return (
