@@ -12,6 +12,7 @@ es
 # eslint
 *.eslintcache
 components/index.tsx
+storybook-static
 
 # local env files
 *.local

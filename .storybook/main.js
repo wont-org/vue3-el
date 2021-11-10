@@ -58,6 +58,7 @@ module.exports = {
             resolve,
             css,
             optimizeDeps,
+            base: './',
         }
     },
 }

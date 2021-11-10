@@ -3,11 +3,11 @@ import { DataSourceItem } from '../interface'
 export const selectList = [
     {
         label: '玩物平台',
-        value: 1,
+        value: '1',
     },
     {
         label: '212',
-        value: 2,
+        value: '2',
     },
 ]
 
