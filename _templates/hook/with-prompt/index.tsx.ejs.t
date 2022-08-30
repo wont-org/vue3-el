@@ -1,5 +1,5 @@
 ---
-  to: components/<%= name %>/index.tsx
+  to: components/<%= name %>/index.ts
 ---
 import {ref} from 'vue'
 import type {Ref} from 'vue'

@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/vue3'
 import {
-    defineComponent, ref, watch 
+    defineComponent, ref 
 } from 'vue'
 import useOverflow from '.'
 
@@ -10,12 +10,6 @@ const Overflow = defineComponent({
         const containerRef = ref()
         const contentRef = ref()
         const overflow = useOverflow(containerRef, contentRef)
-        watch(
-            () => overflow.value,
-            () => {
-                console.log('overflow.value :>> ', overflow.value)
-            }
-        )
 
         return () => (
             <div>
@@ -53,7 +47,7 @@ const Overflow = defineComponent({
 })
 
 export default {
-    title: 'Template/useOverflow',
+    title: 'hooks/useOverflow',
     component: Overflow,
 } as Meta
 
