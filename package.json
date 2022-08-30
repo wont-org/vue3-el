@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "create": "hygen component with-prompt",
+    "create:hook": "hygen hook with-prompt",
     "dev:demo": "vite --port 4096 --host",
     "build:demo": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
