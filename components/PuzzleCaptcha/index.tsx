@@ -11,6 +11,7 @@ import {
   getImg, sleep, getRandom, isFirefox 
 } from './utils'
 import { props as puzzleCaptchaProps } from './props'
+import resetImg from './reset.png'
 
 import './index1.less'
 
@@ -410,9 +411,10 @@ export default defineComponent({
           <div class={bodyCls}>
             <div class="title-wrap">
               <h1 class="title">{title}</h1>
-              <i
-                class="qax-icon-Refresh reset"
+              <img
+                src={resetImg}
                 onClick={handleReset}
+                class="reset"
               />
             </div>
             <div
