@@ -12,7 +12,7 @@ import {
 } from './utils'
 import { props as puzzleCaptchaProps } from './props'
 
-import './index.less'
+import './index1.less'
 
 const prefix = 'wont-puzzle-captcha'
 
@@ -399,7 +399,13 @@ export default defineComponent({
       })
 
       return (
-        <section class={cls} v-show={(useMask && visible) || !useMask}>
+        <section
+          class={cls}
+          style={{
+            display:
+                            (useMask && visible) || !useMask ? 'block' : 'none',
+          }}
+        >
           <div class={maskCls} onClick={onClose} />
           <div class={bodyCls}>
             <div class="title-wrap">
@@ -416,9 +422,11 @@ export default defineComponent({
                 height: `${height}px`,
               }}
             >
-              <div v-show="state.loading" class="loading">
-                <i class="qax-icon-Loading" />
-              </div>
+              {state.loading && (
+                <div class="loading">
+                  <i class="qax-icon-Loading" />
+                </div>
+              )}
               <canvas
                 ref={bgCanvasRef}
                 class="bg"
@@ -454,7 +462,8 @@ export default defineComponent({
                 style={{
                   transform: `translateX(${trail.value.x}px)`,
                 }}
-                onMouseDown={handleMoveBegin}
+                // eslint-disable-next-line react/no-unknown-property
+                onMousedown={handleMoveBegin}
               >
                 <i class="qax-icon-Double-angle-right" />
               </div>
@@ -465,7 +474,10 @@ export default defineComponent({
                 }}
               />
               <span
-                v-show={trail.value.x <= 0}
+                style={{
+                  display:
+                                        trail.value.x <= 0 ? 'block' : 'none',
+                }}
                 class="slider-tip"
               >
                 {sliderTip}

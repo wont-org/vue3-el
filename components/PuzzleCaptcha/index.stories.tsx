@@ -1,11 +1,11 @@
 import {
   Story, Meta 
 } from '@storybook/vue3'
-// import PuzzleCaptcha from './index.tsx'
 import {
   reactive, defineComponent 
 } from 'vue'
-import PuzzleCaptcha from './index.vue'
+import PuzzleCaptcha from './index.tsx'
+// import PuzzleCaptcha from './index.vue'
 
 export default {
   title: 'Template/PuzzleCaptcha',
