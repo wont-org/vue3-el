@@ -27,7 +27,7 @@
     "build": "wont-tools compile vue3 -d antd",
     "prepublishOnly": "npm run changelog && npm run build",
     "publish": "ts-node scripts/pub.ts",
-    "prepare": "is-ci || husky install",
+    "postinstall": "husky install",
     "dev": "start-storybook -p 6006",
     "build:docs": "build-storybook"
   },
@@ -98,7 +98,6 @@
     "husky": "^6.0.0",
     "hygen": "^6.1.0",
     "install": "^0.13.0",
-    "is-ci": "^3.0.1",
     "less": "^3.13.1",
     "less-loader": "^6.2.0",
     "lint-staged": "^10.2.11",
