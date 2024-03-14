@@ -16,7 +16,7 @@
   "scripts": {
     "create": "hygen component with-prompt",
     "dev:demo": "vite --port 4096 --host",
-    "build:demo": "vue-tsc --noEmit && vite build",
+    "build:demo": "vite build",
     "serve": "vite preview",
     "prettier": "prettier --write .",
     "eslint": "eslint . --ext .jsx,.js,.tsx,.ts",
@@ -27,7 +27,7 @@
     "build": "wont-tools compile vue3 -d antd",
     "prepublishOnly": "npm run changelog && npm run build",
     "publish": "ts-node scripts/pub.ts",
-    "prepare": "husky install",
+    "postinstall": "husky install",
     "dev": "start-storybook -p 6006",
     "build:docs": "build-storybook"
   },
@@ -43,8 +43,8 @@
     "@wont/vue3-el"
   ],
   "author": {
-    "name": "bantang",
-    "email": "bantang@zhuangdianwenhua.com"
+    "name": "lk0909",
+    "email": "919590347@qq.com"
   },
   "license": "MIT",
   "bugs": {
